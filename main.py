@@ -51,7 +51,7 @@ if st.button("Сумаризувати", type="primary"):
         try:
             # Візуальний індикатор завантаження
             with st.spinner(f"Генерую підсумок за допомогою {model_choice}..."):
-                client = genai.Client(api_key=api_key)
+                client = genai.Client(api_key=api_key, http_options={'api_version': 'v1beta'})
                 response = client.models.generate_content(
                     model=model_choice,
                     contents=text,
